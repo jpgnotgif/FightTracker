@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D8311F9B19EB11EF00F459E7 /* FightTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D8311F9919EB11EF00F459E7 /* FightTracker.xcdatamodeld */; };
 		D8BE756019EA221C00770431 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BE755F19EA221C00770431 /* AppDelegate.swift */; };
-		D8BE756319EA221C00770431 /* FightTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D8BE756119EA221C00770431 /* FightTracker.xcdatamodeld */; };
 		D8BE756519EA221D00770431 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BE756419EA221D00770431 /* ViewController.swift */; };
 		D8BE756819EA221D00770431 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8BE756619EA221D00770431 /* Main.storyboard */; };
 		D8BE756A19EA221D00770431 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8BE756919EA221D00770431 /* Images.xcassets */; };
@@ -29,10 +29,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D8311F9A19EB11EF00F459E7 /* FightTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FightTracker.xcdatamodel; sourceTree = "<group>"; };
 		D8BE755A19EA221C00770431 /* FightTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FightTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8BE755E19EA221C00770431 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D8BE755F19EA221C00770431 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D8BE756219EA221C00770431 /* FightTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FightTracker.xcdatamodel; sourceTree = "<group>"; };
 		D8BE756419EA221D00770431 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D8BE756719EA221D00770431 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D8BE756919EA221D00770431 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -88,10 +88,10 @@
 				D8BE756619EA221D00770431 /* Main.storyboard */,
 				D8BE756919EA221D00770431 /* Images.xcassets */,
 				D8BE756B19EA221D00770431 /* LaunchScreen.xib */,
-				D8BE756119EA221C00770431 /* FightTracker.xcdatamodeld */,
 				D8BE755D19EA221C00770431 /* Supporting Files */,
 				D8BE758819EA281D00770431 /* ResultsListController.swift */,
 				D8BE758A19EA2D5000770431 /* CounterController.swift */,
+				D8311F9919EB11EF00F459E7 /* FightTracker.xcdatamodeld */,
 			);
 			path = FightTracker;
 			sourceTree = "<group>";
@@ -223,9 +223,9 @@
 			files = (
 				D8BE758919EA281D00770431 /* ResultsListController.swift in Sources */,
 				D8BE758B19EA2D5000770431 /* CounterController.swift in Sources */,
+				D8311F9B19EB11EF00F459E7 /* FightTracker.xcdatamodeld in Sources */,
 				D8BE756519EA221D00770431 /* ViewController.swift in Sources */,
 				D8BE756019EA221C00770431 /* AppDelegate.swift in Sources */,
-				D8BE756319EA221C00770431 /* FightTracker.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,6 +417,7 @@
 				D8BE757E19EA221D00770431 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D8BE757F19EA221D00770431 /* Build configuration list for PBXNativeTarget "FightTrackerTests" */ = {
 			isa = XCConfigurationList;
@@ -425,16 +426,17 @@
 				D8BE758119EA221D00770431 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		D8BE756119EA221C00770431 /* FightTracker.xcdatamodeld */ = {
+		D8311F9919EB11EF00F459E7 /* FightTracker.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				D8BE756219EA221C00770431 /* FightTracker.xcdatamodel */,
+				D8311F9A19EB11EF00F459E7 /* FightTracker.xcdatamodel */,
 			);
-			currentVersion = D8BE756219EA221C00770431 /* FightTracker.xcdatamodel */;
+			currentVersion = D8311F9A19EB11EF00F459E7 /* FightTracker.xcdatamodel */;
 			path = FightTracker.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

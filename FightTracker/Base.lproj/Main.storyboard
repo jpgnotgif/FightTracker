@@ -34,7 +34,6 @@
         <!--CounterController-->
         <scene sceneID="VA1-cV-Y8g">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="nas-oW-kxO" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController title="CounterController" id="FMa-vG-BMK" customClass="CounterController" customModule="FightTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="diG-Fx-sAZ"/>
@@ -105,6 +104,7 @@
                         <outlet property="winsLabel" destination="w8Q-bv-iRA" id="1gW-k6-c88"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nas-oW-kxO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1256" y="777"/>
         </scene>

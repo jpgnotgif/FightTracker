@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import CoreData
 
 class CounterController: UIViewController {
-
-    let maxValue = Double(100000);
-    
+    let maxValue = Double(100000)
+  
+  
     @IBOutlet weak var winStepper: UIStepper!
     @IBOutlet weak var winsLabel: UILabel!
     
@@ -34,18 +35,26 @@ class CounterController: UIViewController {
         lossesLabel.text = "\(Int(sender.value))"
     }
     
-    @IBAction func updateResults(sender: UIButton) {
-        var dateFormatter: NSDateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        var dateStr = dateFormatter.stringFromDate(NSDate())
-        // TODO : figure out how to post this data to API
-        println("date : \(dateStr)")
-        println("wins : \(winsLabel.text!)")
-        println("loss : \(lossesLabel.text!)")
+    @IBAction func updateResults(sender: UIButton) {      
+      var appDel:AppDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
+      var context:NSManagedObjectContext = appDel.managedObjectContext!
+      
+      var newResults = NSEntityDescription.insertNewObjectForEntityForName(
+        "DailyResults", inManagedObjectContext: context) as NSManagedObject
+      
+      newResults.setValue(NSDate(), forKey: "date")
+      newResults.setValue(winsLabel.text!.toInt(), forKey: "wins")
+      newResults.setValue(lossesLabel.text!.toInt(), forKey: "losses")
+      
+      context.save(nil)
+      
+      println(newResults)
+      println("Object saved.")
+      
     }
     
     
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-  }
+    override func didReceiveMemoryWarning() {
+      super.didReceiveMemoryWarning()
+    }
 }
