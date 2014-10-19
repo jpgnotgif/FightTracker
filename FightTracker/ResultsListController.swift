@@ -10,21 +10,9 @@ import UIKit
 
 class ResultsListController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     let cellIdentifier = "cellIdentifier"
-    var tableData = ["joe", "jeng", "carleton", "chewy", "carl"]
+    var tableData: [String] = DailyResult().findAllFormatted()
 
     @IBOutlet var tableView: UITableView?
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Register the UITableViewCell class with the tableView
-        self.tableView?.registerClass(UITableViewCell.self, forCellReuseIdentifier: self.cellIdentifier)
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 
     // UITableViewDataSource methods
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -47,12 +35,24 @@ class ResultsListController: UIViewController, UITableViewDataSource, UITableVie
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
         let alert = UIAlertController(title: "Item selected", message: "You selected item \(indexPath.row)", preferredStyle: UIAlertControllerStyle.Alert)
 
-        alert.addAction(UIAlertAction(title: "OK",
-                                      style: UIAlertActionStyle.Default,
-                                    handler: {
-                                        (alert: UIAlertAction!) in println("An alert of type \(alert.style.hashValue) was tapped!")
-                                    }))
+        alert.addAction(
+            UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,
+                handler: {
+                    (alert: UIAlertAction!) in println("An alert of type \(alert.style.hashValue) was tapped!")
+                }
+            ))
         self.presentViewController(alert, animated: true, completion: nil)
     }
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Register the UITableViewCell class with the tableView
+        self.tableView?.registerClass(UITableViewCell.self, forCellReuseIdentifier: self.cellIdentifier)
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
 }
