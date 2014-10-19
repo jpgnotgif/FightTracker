@@ -89,6 +89,15 @@
                                     <action selector="updateResults:" destination="FMa-vG-BMK" eventType="touchUpInside" id="MAl-Pc-mGF"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hMT-Le-zd8">
+                                <rect key="frame" x="16" y="362" width="75" height="30"/>
+                                <state key="normal" title="Load Stats">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="debugStats:" destination="FMa-vG-BMK" eventType="touchUpInside" id="Ps3-Fj-c51"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>

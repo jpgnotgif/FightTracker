@@ -39,6 +39,14 @@ class CounterController: UIViewController {
       var appDel:AppDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
       var context:NSManagedObjectContext = appDel.managedObjectContext!
       
+      var yesterdayNewResults = NSEntityDescription.insertNewObjectForEntityForName(
+        "DailyResults", inManagedObjectContext: context) as NSManagedObject
+
+      var yesterday = NSDate(timeIntervalSinceNow: 86400)
+      yesterdayNewResults.setValue(yesterday, forKey: "date")
+      yesterdayNewResults.setValue(40, forKey: "wins")
+      yesterdayNewResults.setValue(4, forKey: "losses")
+
       var newResults = NSEntityDescription.insertNewObjectForEntityForName(
         "DailyResults", inManagedObjectContext: context) as NSManagedObject
       
@@ -48,12 +56,44 @@ class CounterController: UIViewController {
       
       context.save(nil)
       
+      println(yesterdayNewResults)
       println(newResults)
       println("Object saved.")
       
     }
     
-    
+    @IBAction func debugStats(sender: AnyObject) {
+      var appDel:AppDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
+      var context:NSManagedObjectContext = appDel.managedObjectContext!
+
+      var request = NSFetchRequest(entityName: "DailyResults")
+      request.returnsObjectsAsFaults = false
+
+      var results:NSArray = context.executeFetchRequest(request, error: nil) as NSArray!
+
+      var dateFormatter = NSDateFormatter()
+      dateFormatter.dateFormat = "yyyy-MM-dd"
+
+      if (results.count > 0)
+      {
+        for result in results {
+          var x = result as NSManagedObject
+          var date = x.valueForKey("date") as NSDate
+          var wins = x.valueForKey("wins") as Int
+          var loss = x.valueForKey("losses") as Int
+
+          var formattedDate = dateFormatter.stringFromDate(date)
+          println(formattedDate)
+          println(String(wins))
+          println(String(loss))
+          println("- - - -")
+        }
+      }
+      else
+      {
+        println("NO RESULTS")
+      }
+    }
     override func didReceiveMemoryWarning() {
       super.didReceiveMemoryWarning()
     }
