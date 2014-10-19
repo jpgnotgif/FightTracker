@@ -15,6 +15,19 @@
                     <view key="view" contentMode="scaleToFill" id="SUD-0E-gWK">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="npP-lp-QTn">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="568" id="FQb-Vp-g1A"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="AeB-Ls-V2z" id="wbg-Or-92G"/>
+                                    <outlet property="delegate" destination="AeB-Ls-V2z" id="COJ-Wi-OMy"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Stats" id="OPE-TE-gIC">
@@ -26,6 +39,9 @@
                     </navigationItem>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="tableView" destination="npP-lp-QTn" id="zRf-ei-pV4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NFU-PZ-rTT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
