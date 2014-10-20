@@ -44,6 +44,10 @@ class ResultsListController: UIViewController, UITableViewDataSource, UITableVie
         self.presentViewController(alert, animated: true, completion: nil)
     }
 
+    override func viewWillAppear(animated: Bool) {
+        tableData = DailyResult().findAllFormatted()
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 

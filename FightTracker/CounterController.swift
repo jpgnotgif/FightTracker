@@ -39,29 +39,29 @@ class CounterController: UIViewController {
       UIApplication.sharedApplication().delegate as AppDelegate
     )
     var context:NSManagedObjectContext = appDel.managedObjectContext!
-      
-    var yesterdayNewResults =
-      NSEntityDescription.insertNewObjectForEntityForName(
-        "DailyResults", inManagedObjectContext: context
-      ) as NSManagedObject
-
-    var yesterday = NSDate(timeIntervalSinceNow: 86400)
-    yesterdayNewResults.setValue(yesterday, forKey: "date")
-    yesterdayNewResults.setValue(40, forKey: "wins")
-    yesterdayNewResults.setValue(4, forKey: "losses")
-
     var newResults = NSEntityDescription.insertNewObjectForEntityForName(
       "DailyResults", inManagedObjectContext: context) as NSManagedObject
 
+/*
+    insertTestData(context, date: NSDate(timeIntervalSinceNow: 86400), wins: 10, losses: 10)
+    insertTestData(context, date: NSDate(timeIntervalSinceNow: -86400*2), wins: 5, losses: 0)
+    insertTestData(context, date: NSDate(timeIntervalSinceNow: -86400*3), wins: 3, losses: 1)
+    insertTestData(context, date: NSDate(timeIntervalSinceNow: -86400*4), wins: 9, losses: 3)
+*/
     newResults.setValue(NSDate(), forKey: "date")
     newResults.setValue(winsLabel.text!.toInt(), forKey: "wins")
     newResults.setValue(lossesLabel.text!.toInt(), forKey: "losses")
 
     context.save(nil)
-    
-    println(yesterdayNewResults)
-    println(newResults)
-    println("Object saved.")
+  }
+
+  func insertTestData(context: NSManagedObjectContext, date: NSDate, wins: Int, losses: Int) -> Void {
+    var results = NSEntityDescription.insertNewObjectForEntityForName(
+      "DailyResults", inManagedObjectContext: context
+      ) as NSManagedObject
+    results.setValue(date, forKey: "date")
+    results.setValue(wins, forKey: "wins")
+    results.setValue(losses, forKey: "losses")
   }
 
   @IBAction func debugStats(sender: AnyObject) {

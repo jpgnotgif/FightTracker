@@ -13,6 +13,7 @@ import CoreData
 class DailyResult {
   let dataSet:String = "DailyResults"
   let dateFormatter = NSDateFormatter()
+  let dateDescSort = NSSortDescriptor(key: "date", ascending: false)
 
   func findAllFormatted() -> [String] {
     self.dateFormatter.dateFormat = "yyyy-MM-dd"
@@ -41,6 +42,7 @@ class DailyResult {
     var context:NSManagedObjectContext = appDel.managedObjectContext!
     var request = NSFetchRequest(entityName: self.dataSet)
     request.returnsObjectsAsFaults = false
+    request.sortDescriptors = [dateDescSort]
     var queryResults = context.executeFetchRequest(request, error: nil)
       as NSArray!
     return queryResults
