@@ -10,13 +10,13 @@ import UIKit
 
 class ResultsListController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     let cellIdentifier = "cellIdentifier"
-    var tableData: [String] = DailyResult().findAllFormatted()
+    var tableData: [String?] = DailyResult().findAllFormatted()
 
     @IBOutlet var tableView: UITableView?
 
     // UITableViewDataSource methods
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+        return tableData.count
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

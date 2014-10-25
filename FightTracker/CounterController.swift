@@ -14,24 +14,44 @@ class CounterController: UIViewController {
   
   @IBOutlet weak var winStepper: UIStepper!
   @IBOutlet weak var winsLabel: UILabel!
+  @IBOutlet weak var winsText: UILabel!
     
   @IBOutlet weak var lossStepper: UIStepper!
   @IBOutlet weak var lossesLabel: UILabel!
+  @IBOutlet weak var lossText: UILabel!
 
   override func viewDidLoad() {
-      super.viewDidLoad()
-      winStepper.autorepeat = true
-      winStepper.maximumValue = maxValue
-      lossStepper.autorepeat = true
-      lossStepper.maximumValue = maxValue
+    super.viewDidLoad()
+    winStepper.autorepeat = true
+    winStepper.maximumValue = maxValue
+    lossStepper.autorepeat = true
+    lossStepper.maximumValue = maxValue
   }
 
   @IBAction func winStepperValueChanged(sender: UIStepper) {
-      winsLabel.text = "\(Int(sender.value))"
+    var count = Int(sender.value)
+    winsLabel.text = "\(count)"
+    if (count == 1)
+    {
+      winsText.text = "win"
+    }
+    else
+    {
+      winsText.text = "wins"
+    }
   }
-    
+
   @IBAction func lossStepperValueChanged(sender: UIStepper) {
-      lossesLabel.text = "\(Int(sender.value))"
+    var count = Int(sender.value)
+    lossesLabel.text = "\(count)"
+    if (count == 1)
+    {
+      lossText.text = "loss"
+    }
+    else
+    {
+      lossText.text = "losses"
+    }
   }
 
   @IBAction func updateResults(sender: UIButton) {

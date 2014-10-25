@@ -60,7 +60,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="gIy-R8-jhZ">
-                                <rect key="frame" x="16" y="119" width="94" height="29"/>
+                                <rect key="frame" x="55" y="119" width="94" height="29"/>
                                 <connections>
                                     <action selector="winStepperValueChanged:" destination="FMa-vG-BMK" eventType="valueChanged" id="oDO-ha-mAK"/>
                                 </connections>
@@ -72,19 +72,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="ryF-EW-euD">
-                                <rect key="frame" x="16" y="240" width="94" height="29"/>
+                                <rect key="frame" x="55" y="198" width="94" height="29"/>
                                 <connections>
                                     <action selector="lossStepperValueChanged:" destination="FMa-vG-BMK" eventType="valueChanged" id="D5W-TE-JT3"/>
                                 </connections>
                             </stepper>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Losses" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Db-Y6-a6P">
-                                <rect key="frame" x="16" y="273" width="55" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w8Q-bv-iRA">
-                                <rect key="frame" x="16" y="72" width="288" height="39.5"/>
+                                <rect key="frame" x="16" y="108" width="288" height="39.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="48"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -114,6 +108,12 @@
                                     <action selector="debugStats:" destination="FMa-vG-BMK" eventType="touchUpInside" id="Ps3-Fj-c51"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Losses" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Db-Y6-a6P">
+                                <rect key="frame" x="16" y="235" width="55" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -124,9 +124,11 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="lossStepper" destination="ryF-EW-euD" id="bOh-4w-wc7"/>
+                        <outlet property="lossText" destination="6Db-Y6-a6P" id="g0u-SX-KC6"/>
                         <outlet property="lossesLabel" destination="gYm-hN-4Np" id="kX0-mI-wUr"/>
                         <outlet property="winStepper" destination="gIy-R8-jhZ" id="FCC-Yz-fKX"/>
                         <outlet property="winsLabel" destination="w8Q-bv-iRA" id="1gW-k6-c88"/>
+                        <outlet property="winsText" destination="gaN-4B-I6g" id="MaO-DT-OvB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nas-oW-kxO" userLabel="First Responder" sceneMemberID="firstResponder"/>

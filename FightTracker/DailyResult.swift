@@ -15,20 +15,28 @@ class DailyResult {
   let dateFormatter = NSDateFormatter()
   let dateDescSort = NSSortDescriptor(key: "date", ascending: false)
 
-  func findAllFormatted() -> [String] {
+  func findAllFormatted() -> [String?] {
     self.dateFormatter.dateFormat = "yyyy-MM-dd"
-    var formattedResults = [""]
     var queryResults = self.findAll()
+    var formattedResults = [String?]()
+
+    /*
+      Note : We cannot use Array map here because
+      NSArray doesn't support it
+    */
     if (queryResults.count > 0)
     {
       for row in queryResults {
         var obj = row as NSManagedObject
         var date = obj.valueForKey("date") as NSDate
-        var wins = String(obj.valueForKey("wins") as Int)
-        var losses = String(obj.valueForKey("losses") as Int)
+        var wins = obj.valueForKey("wins") as Int
+        var losses = obj.valueForKey("losses") as Int
+
+        var winsString = wins == 1 ? "\(wins) win" : "\(wins) wins"
+        var lossString = losses == 1 ? "\(losses) loss" : "\(losses) losses"
 
         var formattedDate = self.dateFormatter.stringFromDate(date)
-        var result = "\(formattedDate) : \(wins) wins, \(losses) losses"
+        var result = "\(formattedDate) : \(winsString), \(lossString)"
 
         formattedResults.append(result)
       }
