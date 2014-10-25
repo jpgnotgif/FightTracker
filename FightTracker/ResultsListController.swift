@@ -33,6 +33,7 @@ class ResultsListController: UIViewController, UITableViewDataSource, UITableVie
 
     // UITableViewDelegate methods
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
+/*
         let alert = UIAlertController(title: "Item selected", message: "You selected item \(indexPath.row)", preferredStyle: UIAlertControllerStyle.Alert)
 
         alert.addAction(
@@ -41,7 +42,9 @@ class ResultsListController: UIViewController, UITableViewDataSource, UITableVie
                     (alert: UIAlertAction!) in println("An alert of type \(alert.style.hashValue) was tapped!")
                 }
             ))
-        self.presentViewController(alert, animated: true, completion: nil)
+*/
+        println(self.tableData[indexPath.row])
+//        self.presentViewController(alert, animated: true, completion: nil)
     }
 
     override func viewWillAppear(animated: Bool) {

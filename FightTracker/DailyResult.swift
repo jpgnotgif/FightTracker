@@ -16,35 +16,25 @@ class DailyResult {
   let dateDescSort = NSSortDescriptor(key: "date", ascending: false)
 
   func findAllFormatted() -> [String?] {
-    self.dateFormatter.dateFormat = "yyyy-MM-dd"
-    var queryResults = self.findAll()
+    var records = self.findAll()
     var formattedResults = [String?]()
 
-    /*
-      Note : We cannot use Array map here because
-      NSArray doesn't support it
-    */
-    if (queryResults.count > 0)
+    if (records.count > 0)
     {
-      for row in queryResults {
-        var obj = row as NSManagedObject
-        var date = obj.valueForKey("date") as NSDate
-        var wins = obj.valueForKey("wins") as Int
-        var losses = obj.valueForKey("losses") as Int
-
-        var winsString = wins == 1 ? "\(wins) win" : "\(wins) wins"
-        var lossString = losses == 1 ? "\(losses) loss" : "\(losses) losses"
-
-        var formattedDate = self.dateFormatter.stringFromDate(date)
-        var result = "\(formattedDate) : \(winsString), \(lossString)"
-
-        formattedResults.append(result)
+      for record in records {
+        formattedResults.append(record?.format())
       }
     }
     return formattedResults
   }
 
-  func findAll() -> NSArray {
+  /*
+    Note : We cannot use Array map here because
+    NSArray doesn't support it
+  */
+
+  func findAll() -> [SuccessRatio?] {
+    var records = [SuccessRatio?]()
     var appDel:AppDelegate = (UIApplication.sharedApplication().delegate
       as AppDelegate)
     var context:NSManagedObjectContext = appDel.managedObjectContext!
@@ -53,7 +43,16 @@ class DailyResult {
     request.sortDescriptors = [dateDescSort]
     var queryResults = context.executeFetchRequest(request, error: nil)
       as NSArray!
-    return queryResults
 
+    for row in queryResults {
+      var obj = row as NSManagedObject
+      var date = obj.valueForKey("date") as NSDate
+      var wins = obj.valueForKey("wins") as Int
+      var losses = obj.valueForKey("losses") as Int
+
+      var record = SuccessRatio(date: date, wins: wins, losses: losses)
+      records.append(record)
+    }
+    return records
   }
 }

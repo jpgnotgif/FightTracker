@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		D8311F9B19EB11EF00F459E7 /* FightTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D8311F9919EB11EF00F459E7 /* FightTracker.xcdatamodeld */; };
 		D843B9C319F3505400A691EA /* DailyResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D843B9C219F3505400A691EA /* DailyResult.swift */; };
+		D875B44D19FC41D300EF8FCC /* SuccessRatio.swift in Sources */ = {isa = PBXBuildFile; fileRef = D875B44C19FC41D300EF8FCC /* SuccessRatio.swift */; };
 		D8BE756019EA221C00770431 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BE755F19EA221C00770431 /* AppDelegate.swift */; };
 		D8BE756519EA221D00770431 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BE756419EA221D00770431 /* ViewController.swift */; };
 		D8BE756819EA221D00770431 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8BE756619EA221D00770431 /* Main.storyboard */; };
@@ -32,6 +33,7 @@
 /* Begin PBXFileReference section */
 		D8311F9A19EB11EF00F459E7 /* FightTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FightTracker.xcdatamodel; sourceTree = "<group>"; };
 		D843B9C219F3505400A691EA /* DailyResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = DailyResult.swift; sourceTree = "<group>"; tabWidth = 2; };
+		D875B44C19FC41D300EF8FCC /* SuccessRatio.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = SuccessRatio.swift; sourceTree = "<group>"; tabWidth = 2; };
 		D8BE755A19EA221C00770431 /* FightTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FightTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8BE755E19EA221C00770431 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D8BE755F19EA221C00770431 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				D843B9C219F3505400A691EA /* DailyResult.swift */,
+				D875B44C19FC41D300EF8FCC /* SuccessRatio.swift */,
 			);
 			name = resources;
 			sourceTree = "<group>";
@@ -236,6 +239,7 @@
 				D8BE758B19EA2D5000770431 /* CounterController.swift in Sources */,
 				D8311F9B19EB11EF00F459E7 /* FightTracker.xcdatamodeld in Sources */,
 				D8BE756519EA221D00770431 /* ViewController.swift in Sources */,
+				D875B44D19FC41D300EF8FCC /* SuccessRatio.swift in Sources */,
 				D843B9C319F3505400A691EA /* DailyResult.swift in Sources */,
 				D8BE756019EA221C00770431 /* AppDelegate.swift in Sources */,
 			);
