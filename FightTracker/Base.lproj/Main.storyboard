@@ -4,53 +4,45 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6243"/>
     </dependencies>
     <scenes>
-        <!--ResultsListController-->
-        <scene sceneID="aog-FB-HaM">
+        <!--List-->
+        <scene sceneID="YFQ-g6-SeK">
             <objects>
-                <viewController title="ResultsListController" id="AeB-Ls-V2z" customClass="ResultsListController" customModule="FightTracker" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="8Ey-dW-epy"/>
-                        <viewControllerLayoutGuide type="bottom" id="yLb-ab-OZg"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="SUD-0E-gWK">
+                <tableViewController title="List" id="CPD-29-sAf" customClass="SuccessRatiosController" customModule="FightTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="WfG-pd-itJ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" bounces="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="npP-lp-QTn">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="568" id="FQb-Vp-g1A"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="dataSource" destination="AeB-Ls-V2z" id="wbg-Or-92G"/>
-                                    <outlet property="delegate" destination="AeB-Ls-V2z" id="COJ-Wi-OMy"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Stats" id="OPE-TE-gIC">
-                        <barButtonItem key="rightBarButtonItem" title="Add" id="lwa-xJ-m1w">
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="DHc-f5-5vb">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DHc-f5-5vb" id="eVY-ug-O97">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="CPD-29-sAf" id="f4m-rg-yNU"/>
+                            <outlet property="delegate" destination="CPD-29-sAf" id="jzi-et-8id"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="JTT-M2-nDw">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="enr-6c-Q8C">
                             <connections>
-                                <segue destination="FMa-vG-BMK" kind="show" identifier="trackStats" id="b0x-hr-ZSq"/>
+                                <segue destination="FMa-vG-BMK" kind="show" identifier="track" id="k5E-U7-8tC"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                    <connections>
-                        <outlet property="tableView" destination="npP-lp-QTn" id="zRf-ei-pV4"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NFU-PZ-rTT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UmQ-IO-Zej" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="855" y="777"/>
+            <point key="canvasLocation" x="857" y="777"/>
         </scene>
-        <!--CounterController-->
+        <!--Track-->
         <scene sceneID="VA1-cV-Y8g">
             <objects>
-                <viewController title="CounterController" id="FMa-vG-BMK" customClass="CounterController" customModule="FightTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Track" id="FMa-vG-BMK" customClass="CounterController" customModule="FightTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="diG-Fx-sAZ"/>
                         <viewControllerLayoutGuide type="bottom" id="SfG-BM-SFv"/>
@@ -60,56 +52,37 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="9999" translatesAutoresizingMaskIntoConstraints="NO" id="gIy-R8-jhZ">
-                                <rect key="frame" x="16" y="170" width="94" height="29"/>
+                                <rect key="frame" x="210" y="168" width="94" height="29"/>
                                 <connections>
                                     <action selector="winStepperValueChanged:" destination="FMa-vG-BMK" eventType="valueChanged" id="oDO-ha-mAK"/>
                                 </connections>
                             </stepper>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Wins" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gaN-4B-I6g">
-                                <rect key="frame" x="24" y="141" width="38" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="9999" translatesAutoresizingMaskIntoConstraints="NO" id="ryF-EW-euD">
-                                <rect key="frame" x="16" y="290" width="94" height="29"/>
+                                <rect key="frame" x="210" y="284" width="94" height="29"/>
                                 <connections>
                                     <action selector="lossStepperValueChanged:" destination="FMa-vG-BMK" eventType="valueChanged" id="D5W-TE-JT3"/>
                                 </connections>
                             </stepper>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w8Q-bv-iRA">
-                                <rect key="frame" x="16" y="100" width="288" height="39.5"/>
+                                <rect key="frame" x="16" y="129" width="288" height="39.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="48"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gYm-hN-4Np">
-                                <rect key="frame" x="16" y="228" width="288" height="39.5"/>
+                                <rect key="frame" x="16" y="237" width="288" height="39.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="48"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wN3-WS-PzN">
-                                <rect key="frame" x="16" y="387" width="188" height="62"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="48"/>
-                                <state key="normal" title="Update">
-                                    <color key="titleColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="updateResults:" destination="FMa-vG-BMK" eventType="touchUpInside" id="MAl-Pc-mGF"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hMT-Le-zd8">
-                                <rect key="frame" x="16" y="363" width="75" height="30"/>
-                                <state key="normal" title="Load Stats">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="debugStats:" destination="FMa-vG-BMK" eventType="touchUpInside" id="Ps3-Fj-c51"/>
-                                </connections>
-                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Wins" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gaN-4B-I6g">
+                                <rect key="frame" x="16" y="177" width="38" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Losses" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Db-Y6-a6P">
-                                <rect key="frame" x="24" y="266" width="55" height="21"/>
+                                <rect key="frame" x="16" y="292" width="55" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -118,7 +91,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Track" id="GSb-Ev-57V"/>
+                    <navigationItem key="navigationItem" title="Track" id="GSb-Ev-57V">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="NqG-ae-bI4"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="iXr-2S-Cin">
+                            <connections>
+                                <action selector="save:" destination="FMa-vG-BMK" id="yMx-Us-n08"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
@@ -133,7 +113,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nas-oW-kxO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1256" y="777"/>
+            <point key="canvasLocation" x="1241" y="777"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1vE-Ja-wpl">
@@ -148,12 +128,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="AeB-Ls-V2z" kind="relationship" relationship="rootViewController" id="IWF-yi-hWm"/>
+                        <segue destination="CPD-29-sAf" kind="relationship" relationship="rootViewController" id="iih-dJ-1dg"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZYb-cg-RH9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="460" y="777"/>
+            <point key="canvasLocation" x="472" y="777"/>
         </scene>
     </scenes>
 </document>

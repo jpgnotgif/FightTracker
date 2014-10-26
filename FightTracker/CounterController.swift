@@ -11,6 +11,7 @@ import CoreData
 
 class CounterController: UIViewController {
   let maxValue = Double(99999)
+  let dateFormatter = NSDateFormatter()
   
   @IBOutlet weak var winStepper: UIStepper!
   @IBOutlet weak var winsLabel: UILabel!
@@ -44,93 +45,46 @@ class CounterController: UIViewController {
   @IBAction func winStepperValueChanged(sender: UIStepper) {
     var count = Int(sender.value)
     winsLabel.text = "\(count)"
-    if (count == 1)
-    {
-      winsText.text = "win"
-    }
-    else
-    {
-      winsText.text = "wins"
-    }
+    winsText.text = count == 1 ? "win" : "wins"
   }
 
   @IBAction func lossStepperValueChanged(sender: UIStepper) {
     var count = Int(sender.value)
     lossesLabel.text = "\(count)"
-    if (count == 1)
-    {
-      lossText.text = "loss"
-    }
-    else
-    {
-      lossText.text = "losses"
-    }
+    lossText.text = count == 1 ? "loss" : "losses"
   }
 
-  @IBAction func updateResults(sender: UIButton) {
-    var appDel:AppDelegate = (
+  @IBAction func save(sender: AnyObject) {
+    let appDelegate:AppDelegate = (
       UIApplication.sharedApplication().delegate as AppDelegate
     )
-    var context:NSManagedObjectContext = appDel.managedObjectContext!
-    var newResults = NSEntityDescription.insertNewObjectForEntityForName(
-      "DailyResults", inManagedObjectContext: context) as NSManagedObject
+    let context = appDelegate.managedObjectContext!
+    let entityDescription = NSEntityDescription.entityForName(
+      "SuccessRatios",
+      inManagedObjectContext: context
+    )!
+    let calendar = NSCalendar.currentCalendar()
 
-/*
-    insertTestData(context, date: NSDate(timeIntervalSinceNow: 86400), wins: 10, losses: 10)
-    insertTestData(context, date: NSDate(timeIntervalSinceNow: -86400*2), wins: 5, losses: 0)
-    insertTestData(context, date: NSDate(timeIntervalSinceNow: -86400*3), wins: 3, losses: 1)
-    insertTestData(context, date: NSDate(timeIntervalSinceNow: -86400*4), wins: 9, losses: 3)
-*/
-    newResults.setValue(NSDate(), forKey: "date")
-    newResults.setValue(winsLabel.text!.toInt(), forKey: "wins")
-    newResults.setValue(lossesLabel.text!.toInt(), forKey: "losses")
+    var newSuccessRatio = SuccessRatio(
+      entity: entityDescription,
+      insertIntoManagedObjectContext: context
+    )
+
+    var todaysDate = NSDate()
+    var components = calendar.components(
+      .CalendarUnitYear |
+      .CalendarUnitMonth |
+      .CalendarUnitDay,
+      fromDate: todaysDate
+    )
+
+    newSuccessRatio.date = "\(components.year)-\(components.month)-\(components.day)"
+    newSuccessRatio.wins = winsLabel.text!.toInt()!
+    newSuccessRatio.losses = lossesLabel.text!.toInt()!
 
     context.save(nil)
-  }
 
-  func insertTestData(context: NSManagedObjectContext, date: NSDate, wins: Int, losses: Int) -> Void {
-    var results = NSEntityDescription.insertNewObjectForEntityForName(
-      "DailyResults", inManagedObjectContext: context
-      ) as NSManagedObject
-    results.setValue(date, forKey: "date")
-    results.setValue(wins, forKey: "wins")
-    results.setValue(losses, forKey: "losses")
-  }
-
-  @IBAction func debugStats(sender: AnyObject) {
-    var appDel:AppDelegate = (
-      UIApplication.sharedApplication().delegate as AppDelegate
-    )
-    var context:NSManagedObjectContext = appDel.managedObjectContext!
-
-    var request = NSFetchRequest(entityName: "DailyResults")
-    request.returnsObjectsAsFaults = false
-
-    var results:NSArray = context.executeFetchRequest(request, error: nil)
-      as NSArray!
-
-    var dateFormatter = NSDateFormatter()
-    dateFormatter.dateFormat = "yyyy-MM-dd"
-
-    if (results.count > 0)
-    {
-      for result in results {
-        var x = result as NSManagedObject
-        var date = x.valueForKey("date") as NSDate
-        var wins = x.valueForKey("wins") as Int
-        var loss = x.valueForKey("losses") as Int
-
-        var formattedDate = dateFormatter.stringFromDate(date)
-        println(formattedDate)
-        println(String(wins))
-        println(String(loss))
-        println("- - - -")
-      }
-    }
-    else
-    {
-      println("NO RESULTS")
-    }
+    self.navigationController?.popToRootViewControllerAnimated(true)
   }
 
   override func didReceiveMemoryWarning() {

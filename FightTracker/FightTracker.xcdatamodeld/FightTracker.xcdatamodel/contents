@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6251" systemVersion="13F34" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="DailyResults" syncable="YES">
-        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+    <entity name="SuccessRatios" representedClassName="SuccessRatio" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="losses" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="wins" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
     </entity>
     <elements>
-        <element name="DailyResults" positionX="-9" positionY="36" width="128" height="90"/>
+        <element name="SuccessRatios" positionX="-9" positionY="63" width="128" height="90"/>
     </elements>
 </model>

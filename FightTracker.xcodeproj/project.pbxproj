@@ -8,15 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		D8311F9B19EB11EF00F459E7 /* FightTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D8311F9919EB11EF00F459E7 /* FightTracker.xcdatamodeld */; };
-		D843B9C319F3505400A691EA /* DailyResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D843B9C219F3505400A691EA /* DailyResult.swift */; };
-		D875B44D19FC41D300EF8FCC /* SuccessRatio.swift in Sources */ = {isa = PBXBuildFile; fileRef = D875B44C19FC41D300EF8FCC /* SuccessRatio.swift */; };
+		D8332D1C19FD4AFE001209C0 /* SuccessRatiosController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8332D1B19FD4AFE001209C0 /* SuccessRatiosController.swift */; };
+		D8332D1F19FD4EF5001209C0 /* SuccessRatio.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8332D1E19FD4EF5001209C0 /* SuccessRatio.swift */; };
 		D8BE756019EA221C00770431 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BE755F19EA221C00770431 /* AppDelegate.swift */; };
-		D8BE756519EA221D00770431 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BE756419EA221D00770431 /* ViewController.swift */; };
 		D8BE756819EA221D00770431 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8BE756619EA221D00770431 /* Main.storyboard */; };
 		D8BE756A19EA221D00770431 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8BE756919EA221D00770431 /* Images.xcassets */; };
 		D8BE756D19EA221D00770431 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8BE756B19EA221D00770431 /* LaunchScreen.xib */; };
 		D8BE757919EA221D00770431 /* FightTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BE757819EA221D00770431 /* FightTrackerTests.swift */; };
-		D8BE758919EA281D00770431 /* ResultsListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BE758819EA281D00770431 /* ResultsListController.swift */; };
 		D8BE758B19EA2D5000770431 /* CounterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BE758A19EA2D5000770431 /* CounterController.swift */; };
 /* End PBXBuildFile section */
 
@@ -32,19 +30,17 @@
 
 /* Begin PBXFileReference section */
 		D8311F9A19EB11EF00F459E7 /* FightTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FightTracker.xcdatamodel; sourceTree = "<group>"; };
-		D843B9C219F3505400A691EA /* DailyResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = DailyResult.swift; sourceTree = "<group>"; tabWidth = 2; };
-		D875B44C19FC41D300EF8FCC /* SuccessRatio.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = SuccessRatio.swift; sourceTree = "<group>"; tabWidth = 2; };
+		D8332D1B19FD4AFE001209C0 /* SuccessRatiosController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SuccessRatiosController.swift; path = ../SuccessRatiosController.swift; sourceTree = "<group>"; };
+		D8332D1E19FD4EF5001209C0 /* SuccessRatio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuccessRatio.swift; sourceTree = "<group>"; };
 		D8BE755A19EA221C00770431 /* FightTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FightTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8BE755E19EA221C00770431 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D8BE755F19EA221C00770431 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D8BE756419EA221D00770431 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D8BE756719EA221D00770431 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D8BE756919EA221D00770431 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D8BE756C19EA221D00770431 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		D8BE757219EA221D00770431 /* FightTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FightTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8BE757719EA221D00770431 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D8BE757819EA221D00770431 /* FightTrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FightTrackerTests.swift; sourceTree = "<group>"; };
-		D8BE758819EA281D00770431 /* ResultsListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = ResultsListController.swift; sourceTree = "<group>"; tabWidth = 2; };
 		D8BE758A19EA2D5000770431 /* CounterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = CounterController.swift; sourceTree = "<group>"; tabWidth = 2; usesTabs = 0; };
 /* End PBXFileReference section */
 
@@ -66,13 +62,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		D843B9C419F3507D00A691EA /* resources */ = {
+		D8332D1D19FD4D6B001209C0 /* models */ = {
 			isa = PBXGroup;
 			children = (
-				D843B9C219F3505400A691EA /* DailyResult.swift */,
-				D875B44C19FC41D300EF8FCC /* SuccessRatio.swift */,
+				D8332D1E19FD4EF5001209C0 /* SuccessRatio.swift */,
 			);
-			name = resources;
+			name = models;
+			sourceTree = "<group>";
+		};
+		D8332D2019FD73F8001209C0 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D8BE758A19EA2D5000770431 /* CounterController.swift */,
+				D8332D1B19FD4AFE001209C0 /* SuccessRatiosController.swift */,
+			);
+			name = controllers;
 			sourceTree = "<group>";
 		};
 		D8BE755119EA221C00770431 = {
@@ -96,15 +100,13 @@
 		D8BE755C19EA221C00770431 /* FightTracker */ = {
 			isa = PBXGroup;
 			children = (
-				D843B9C419F3507D00A691EA /* resources */,
+				D8332D2019FD73F8001209C0 /* controllers */,
+				D8332D1D19FD4D6B001209C0 /* models */,
 				D8BE755F19EA221C00770431 /* AppDelegate.swift */,
-				D8BE756419EA221D00770431 /* ViewController.swift */,
 				D8BE756619EA221D00770431 /* Main.storyboard */,
 				D8BE756919EA221D00770431 /* Images.xcassets */,
 				D8BE756B19EA221D00770431 /* LaunchScreen.xib */,
 				D8BE755D19EA221C00770431 /* Supporting Files */,
-				D8BE758819EA281D00770431 /* ResultsListController.swift */,
-				D8BE758A19EA2D5000770431 /* CounterController.swift */,
 				D8311F9919EB11EF00F459E7 /* FightTracker.xcdatamodeld */,
 			);
 			path = FightTracker;
@@ -235,13 +237,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D8BE758919EA281D00770431 /* ResultsListController.swift in Sources */,
 				D8BE758B19EA2D5000770431 /* CounterController.swift in Sources */,
 				D8311F9B19EB11EF00F459E7 /* FightTracker.xcdatamodeld in Sources */,
-				D8BE756519EA221D00770431 /* ViewController.swift in Sources */,
-				D875B44D19FC41D300EF8FCC /* SuccessRatio.swift in Sources */,
-				D843B9C319F3505400A691EA /* DailyResult.swift in Sources */,
+				D8332D1F19FD4EF5001209C0 /* SuccessRatio.swift in Sources */,
 				D8BE756019EA221C00770431 /* AppDelegate.swift in Sources */,
+				D8332D1C19FD4AFE001209C0 /* SuccessRatiosController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
