@@ -9,57 +9,58 @@
 import UIKit
 
 class ResultsListController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    let cellIdentifier = "cellIdentifier"
-    var tableData: [String?] = DailyResult().findAllFormatted()
+  let cellIdentifier = "cellIdentifier"
+  var tableData: [String?] = DailyResult().findAllFormatted()
 
-    @IBOutlet var tableView: UITableView?
+  @IBOutlet var tableView: UITableView?
 
-    // UITableViewDataSource methods
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return tableData.count
+  // UITableViewDataSource methods
+  func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    return tableData.count
+  }
+
+  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return tableData.count
+  }
+
+  func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+      var cell = tableView.dequeueReusableCellWithIdentifier(self.cellIdentifier) as UITableViewCell
+
+      cell.textLabel?.text = self.tableData[indexPath.row]
+
+      return cell
+  }
+
+  // UITableViewDelegate methods
+  func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
+    println(self.tableData[indexPath.row]!)
+    var successRatio = DailyResult.toSuccessRatio(self.tableData[indexPath.row]!)
+    self.performSegueWithIdentifier("trackStats", sender: successRatio)
+  }
+
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+    if (segue.identifier == "trackStats" && tableData.count > 0)
+    {
+      let successRatio = sender as SuccessRatio
+      let viewController = segue.destinationViewController as CounterController
+      viewController.successRatio = successRatio
     }
+  }
 
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tableData.count
-    }
+  override func viewWillAppear(animated: Bool) {
+    tableData = DailyResult().findAllFormatted()
+  }
 
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier(self.cellIdentifier) as UITableViewCell
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    println(self.tableData)
 
-        cell.textLabel?.text = self.tableData[indexPath.row]
+    // Register the UITableViewCell class with the tableView
+    self.tableView?.registerClass(UITableViewCell.self, forCellReuseIdentifier: self.cellIdentifier)
+  }
 
-        return cell
-    }
-
-    // UITableViewDelegate methods
-    func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
-/*
-        let alert = UIAlertController(title: "Item selected", message: "You selected item \(indexPath.row)", preferredStyle: UIAlertControllerStyle.Alert)
-
-        alert.addAction(
-            UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,
-                handler: {
-                    (alert: UIAlertAction!) in println("An alert of type \(alert.style.hashValue) was tapped!")
-                }
-            ))
-*/
-        println(self.tableData[indexPath.row])
-//        self.presentViewController(alert, animated: true, completion: nil)
-    }
-
-    override func viewWillAppear(animated: Bool) {
-        tableData = DailyResult().findAllFormatted()
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Register the UITableViewCell class with the tableView
-        self.tableView?.registerClass(UITableViewCell.self, forCellReuseIdentifier: self.cellIdentifier)
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+  override func didReceiveMemoryWarning() {
+    super.didReceiveMemoryWarning()
+    // Dispose of any resources that can be recreated.
+  }
 }

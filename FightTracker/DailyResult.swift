@@ -12,7 +12,6 @@ import CoreData
 
 class DailyResult {
   let dataSet:String = "DailyResults"
-  let dateFormatter = NSDateFormatter()
   let dateDescSort = NSSortDescriptor(key: "date", ascending: false)
 
   func findAllFormatted() -> [String?] {
@@ -54,5 +53,24 @@ class DailyResult {
       records.append(record)
     }
     return records
+  }
+
+  class func toSuccessRatio(formattedString: String) -> SuccessRatio {
+    let dateFormatter = NSDateFormatter()
+    dateFormatter.dateFormat = "yyyy-MM-dd"
+
+    var splitStr = formattedString.componentsSeparatedByCharactersInSet(
+      NSCharacterSet(charactersInString: ":,")
+    )
+
+    var fields = splitStr.map {
+      $0.stringByTrimmingCharactersInSet(
+        NSCharacterSet(charactersInString: "winslosses "))
+    }
+
+    var date = dateFormatter.dateFromString(fields[0])!
+    var wins = fields[1].toInt()!
+    var losses = fields[2].toInt()!
+    return SuccessRatio(date: date, wins: wins, losses: losses)
   }
 }

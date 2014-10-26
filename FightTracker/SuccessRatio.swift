@@ -24,22 +24,42 @@ class SuccessRatio {
   func format() -> String {
     return self.formatter.format()
   }
+
+  func labelForNumber(name: String, value: Int) -> String {
+    return self.formatter.labelForNumber(name, value: value)
+  }
 }
 
 struct SuccessRatioFormatter {
-  var dateFormatter = NSDateFormatter()
+  let dateFormatter = NSDateFormatter()
   var formattedDate: String
-  var formattedWins: String
-  var formattedLosses: String
+  var formattedWins: String = "0 wins"
+  var formattedLosses: String = "0 losses"
 
   init(date: NSDate, wins: Int, losses: Int) {
     dateFormatter.dateFormat = "yyyy-MM-dd"
     formattedDate = dateFormatter.stringFromDate(date)
-    formattedWins = wins == 1 ? "\(wins) win" : "\(wins) wins"
-    formattedLosses = losses == 1 ? "\(losses) loss" : "\(losses) losses"
+    formattedWins = formatMetric("wins", value: wins)
+    formattedLosses = formatMetric("losses", value: losses)
   }
 
   func format() -> String {
     return "\(formattedDate) :  \(formattedWins), \(formattedLosses)"
   }
+
+  func formatMetric(name: String, value: Int) -> String {
+    return "\(value) \(labelForNumber(name, value: value))"
+  }
+
+  func labelForNumber(name: String, value: Int) -> String {
+    switch name {
+      case "wins" where value == 1:
+        return "win"
+      case "losses" where value == 1:
+        return "loss"
+      default:
+        return name
+    }
+  }
+
 }

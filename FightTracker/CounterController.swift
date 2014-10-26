@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 class CounterController: UIViewController {
-  let maxValue = Double(100000)
+  let maxValue = Double(99999)
   
   @IBOutlet weak var winStepper: UIStepper!
   @IBOutlet weak var winsLabel: UILabel!
@@ -20,12 +20,25 @@ class CounterController: UIViewController {
   @IBOutlet weak var lossesLabel: UILabel!
   @IBOutlet weak var lossText: UILabel!
 
+  var successRatio: SuccessRatio? = nil
+
   override func viewDidLoad() {
     super.viewDidLoad()
     winStepper.autorepeat = true
     winStepper.maximumValue = maxValue
     lossStepper.autorepeat = true
     lossStepper.maximumValue = maxValue
+
+    if (successRatio != nil)
+    {
+      /*
+        set winsLabel value
+        set winsText value
+        set lossesLabel value
+        set lossText value
+      */
+    }
+
   }
 
   @IBAction func winStepperValueChanged(sender: UIStepper) {

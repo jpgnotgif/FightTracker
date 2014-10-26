@@ -44,7 +44,7 @@
 		D8BE757219EA221D00770431 /* FightTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FightTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8BE757719EA221D00770431 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D8BE757819EA221D00770431 /* FightTrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FightTrackerTests.swift; sourceTree = "<group>"; };
-		D8BE758819EA281D00770431 /* ResultsListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsListController.swift; sourceTree = "<group>"; };
+		D8BE758819EA281D00770431 /* ResultsListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = ResultsListController.swift; sourceTree = "<group>"; tabWidth = 2; };
 		D8BE758A19EA2D5000770431 /* CounterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = CounterController.swift; sourceTree = "<group>"; tabWidth = 2; usesTabs = 0; };
 /* End PBXFileReference section */
 
