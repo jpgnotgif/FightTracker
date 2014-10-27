@@ -32,7 +32,17 @@ class SuccessRatio: NSManagedObject {
   }
 
   func format() -> String {
-    return self.formatter!.format()
+    if let formatter = self.formatter? {
+      return formatter.format()
+    }
+    return ""
+  }
+  
+  func labelForNumber(name: String, value: Int) -> String {
+    if let formatter = self.formatter? {
+      return formatter.labelForNumber(name, value: value)
+    }
+    return ""
   }
 }
 

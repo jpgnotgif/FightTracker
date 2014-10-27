@@ -14,23 +14,40 @@ class SuccessRatiosController: UITableViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-  }
-
-  override func viewDidAppear(animated: Bool) {
     let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate
       as AppDelegate
     let context: NSManagedObjectContext = appDelegate.managedObjectContext!
     let entityDescription = NSEntityDescription.entityForName(
       "SuccessRatios", inManagedObjectContext: context)!
-
+    
     let fetchRequest = NSFetchRequest(entityName: "SuccessRatios")
     let dateSortDescriptor = NSSortDescriptor(key: "date", ascending: false)
-
+    
     fetchRequest.sortDescriptors = [dateSortDescriptor]
     tableData = context.executeFetchRequest(fetchRequest, error: nil)!
     tableView.reloadData()
   }
+  
+  override func viewDidAppear(animated: Bool) {
+    tableView.reloadData()
+  }
 
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate
+      as AppDelegate
+    let context: NSManagedObjectContext = appDelegate.managedObjectContext!
+    let entityDescription = NSEntityDescription.entityForName(
+      "SuccessRatios", inManagedObjectContext: context)!
+    
+    if segue.identifier == "update"
+    {
+      var row = self.tableView.indexPathForSelectedRow()!.row
+      var successRatio = tableData[row] as NSManagedObject
+      let counterController = segue.destinationViewController as CounterController
+      counterController.successRatio = successRatio
+    }
+  }
+  
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
   }
@@ -41,12 +58,12 @@ class SuccessRatiosController: UITableViewController {
   }
 
   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    // #warning Incomplete method implementation.
-    // Return the number of rows in the section.
     return tableData.count
   }
 
-  override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+  override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) ->
+    UITableViewCell {
+      
     let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate
       as AppDelegate
     let context: NSManagedObjectContext = appDelegate.managedObjectContext!
@@ -70,7 +87,7 @@ class SuccessRatiosController: UITableViewController {
     cell.textLabel!.text = successRatio.format()
     return cell
   }
-
+  
   /*
   // Override to support conditional editing of the table view.
   override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -106,14 +123,6 @@ class SuccessRatiosController: UITableViewController {
   }
   */
 
-  /*
-  // MARK: - Navigation
 
-  // In a storyboard-based application, you will often want to do a little preparation before navigation
-  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-      // Get the new view controller using [segue destinationViewController].
-      // Pass the selected object to the new view controller.
-  }
-  */
 
 }
