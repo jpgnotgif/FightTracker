@@ -16,6 +16,7 @@
 		D8BE756D19EA221D00770431 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8BE756B19EA221D00770431 /* LaunchScreen.xib */; };
 		D8BE757919EA221D00770431 /* FightTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BE757819EA221D00770431 /* FightTrackerTests.swift */; };
 		D8BE758B19EA2D5000770431 /* CounterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BE758A19EA2D5000770431 /* CounterController.swift */; };
+		D8EF42791A06F06500FB2F75 /* SegueIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EF42781A06F06500FB2F75 /* SegueIdentifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		D8BE757719EA221D00770431 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D8BE757819EA221D00770431 /* FightTrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FightTrackerTests.swift; sourceTree = "<group>"; };
 		D8BE758A19EA2D5000770431 /* CounterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = CounterController.swift; sourceTree = "<group>"; tabWidth = 2; usesTabs = 0; };
+		D8EF42781A06F06500FB2F75 /* SegueIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueIdentifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 		D8BE755C19EA221C00770431 /* FightTracker */ = {
 			isa = PBXGroup;
 			children = (
+				D8EF42771A06F05800FB2F75 /* enums */,
 				D8332D2019FD73F8001209C0 /* controllers */,
 				D8332D1D19FD4D6B001209C0 /* models */,
 				D8BE755F19EA221C00770431 /* AppDelegate.swift */,
@@ -135,6 +138,14 @@
 				D8BE757719EA221D00770431 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D8EF42771A06F05800FB2F75 /* enums */ = {
+			isa = PBXGroup;
+			children = (
+				D8EF42781A06F06500FB2F75 /* SegueIdentifier.swift */,
+			);
+			name = enums;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,6 +252,7 @@
 				D8311F9B19EB11EF00F459E7 /* FightTracker.xcdatamodeld in Sources */,
 				D8332D1F19FD4EF5001209C0 /* SuccessRatio.swift in Sources */,
 				D8BE756019EA221C00770431 /* AppDelegate.swift in Sources */,
+				D8EF42791A06F06500FB2F75 /* SegueIdentifier.swift in Sources */,
 				D8332D1C19FD4AFE001209C0 /* SuccessRatiosController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -365,8 +377,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = FightTracker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -375,8 +389,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = FightTracker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

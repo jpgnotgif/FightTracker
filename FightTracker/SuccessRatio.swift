@@ -44,6 +44,11 @@ class SuccessRatio: NSManagedObject {
     }
     return ""
   }
+
+  func hasMatchingDate(dateComponents: NSDateComponents) -> Bool {
+    return self.date ==
+      "\(dateComponents.year)-\(dateComponents.month)-\(dateComponents.day)"
+  }
 }
 
 struct SuccessRatioFormatter {

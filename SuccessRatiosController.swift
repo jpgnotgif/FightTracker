@@ -10,6 +10,10 @@ import UIKit
 import CoreData
 
 class SuccessRatiosController: UITableViewController {
+  let todaysDate = NSDate()
+  let calendar = NSCalendar.currentCalendar()
+  let dateFormatter = NSDateFormatter()
+
   var tableData: Array<AnyObject> = []
 
   override func viewDidLoad() {
@@ -29,6 +33,20 @@ class SuccessRatiosController: UITableViewController {
   }
   
   override func viewDidAppear(animated: Bool) {
+    if tableData.count == 0
+    {
+      let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate
+        as AppDelegate
+      let context: NSManagedObjectContext = appDelegate.managedObjectContext!
+      let entityDescription = NSEntityDescription.entityForName(
+        "SuccessRatios", inManagedObjectContext: context)!
+
+      let fetchRequest = NSFetchRequest(entityName: "SuccessRatios")
+      let dateSortDescriptor = NSSortDescriptor(key: "date", ascending: false)
+
+      fetchRequest.sortDescriptors = [dateSortDescriptor]
+      tableData = context.executeFetchRequest(fetchRequest, error: nil)!
+    }
     tableView.reloadData()
   }
 
@@ -38,13 +56,33 @@ class SuccessRatiosController: UITableViewController {
     let context: NSManagedObjectContext = appDelegate.managedObjectContext!
     let entityDescription = NSEntityDescription.entityForName(
       "SuccessRatios", inManagedObjectContext: context)!
+
+    var selectedRow = self.tableView.indexPathForSelectedRow()?
     
-    if segue.identifier == "update"
-    {
-      var row = self.tableView.indexPathForSelectedRow()!.row
+    let identifier = SegueIdentifier(rawValue: segue.identifier!)!
+    let counterController = segue.destinationViewController as CounterController
+
+    switch identifier {
+    case .Update:
+      var row = selectedRow!.row
       var successRatio = tableData[row] as NSManagedObject
-      let counterController = segue.destinationViewController as CounterController
       counterController.successRatio = successRatio
+    case .Track where tableData.count > 0:
+      let dateComponents = calendar.components(
+        .CalendarUnitYear |
+          .CalendarUnitMonth |
+          .CalendarUnitDay,
+        fromDate: todaysDate
+      )
+      var nsArray = tableData as NSArray
+      var foundIndex = nsArray.indexOfObjectPassingTest { (obj, index, stop) in
+        var successRatio = obj as SuccessRatio
+        return successRatio.hasMatchingDate(dateComponents)
+      }
+      var successRatio = tableData[foundIndex] as SuccessRatio
+      counterController.successRatio = successRatio
+    default:
+      counterController.successRatio = nil
     }
   }
   
